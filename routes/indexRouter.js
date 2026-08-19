@@ -2,18 +2,11 @@ const { Router } = require("express");
 
 const indexRouter = Router();
 
-// pathing example
-// indexRouter.get("/", (req, res) => res.send("Index type s"));
-
-// using EJS and index.ejs template variable 'message'
-// indexRouter.get("/", (req, res) => {
-//   res.render("index", { message: "EJS rocks!" });
-// });
 
 // using EJS and index.ejs/navbar.ejs to render 'links' locals variables
 const links = [
   { href: "/", text: "Home" },
-  { href: "/new", text: "About" },
+  { href: "/new", text: "New Message" },
 ];
 // sample array of messages
 const messages = [
@@ -30,11 +23,16 @@ const messages = [
 ];
 
 indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
+  res.render("index", { title: "Mini Messageboard", links: links, messages: messages });
 });
 indexRouter.get("/new", (req, res) => {
     res.render("form", {});
 });
+// post method to get data from form inputs.
+indexRouter.post("/new", (req, res) => {
+  messages.push({text: req.body.messageText, user: req.body.authorName, added: new Date() });
+  res.redirect("/"); // sends user back to index page after new message submission
+})
 
 
 module.exports = indexRouter;
