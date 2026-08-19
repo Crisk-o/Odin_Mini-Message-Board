@@ -1,8 +1,16 @@
-<h2>New Message</h2> <!-- when form submitted, should send POST req to specified URL by action attrib. Add a POST route for new in router.-->
-<form method="POST" action="/new">
-    <p>New Message: </p>
-    <input type="text" name="messageText"/>
-    <p>From:</p>
-    <input type="text" name="authorName"/>
-    <button type="submit">Submit</button>
-</form>
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css"> 
+    </head>
+    <body>
+        <h2>Send a new message</h2> <!-- when form submitted, should send POST req to specified URL by action attrib. Add a POST route for new in router.-->
+        <form method="POST" action="/new">
+            <label for="messageText">Message Content: </label>
+            <input id="messageInput" type="text" name="messageText" placeholder="Enter your message (e.g., 'Hello Bobbie')"/>
+            <label for="authorName">From:</label>
+            <input type="text" name="authorName"/>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
+

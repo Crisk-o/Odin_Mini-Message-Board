@@ -26,7 +26,7 @@ indexRouter.get("/", (req, res) => {
   res.render("index", { title: "Mini Messageboard", links: links, messages: messages });
 });
 indexRouter.get("/new", (req, res) => {
-    res.render("form", {});
+    res.render("form");
 });
 // post method to get data from form inputs.
 indexRouter.post("/new", (req, res) => {
